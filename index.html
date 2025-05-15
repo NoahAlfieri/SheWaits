@@ -5,24 +5,69 @@
   <title>She Waits</title>
   <style>
     body {
-      background: black;
+      background-color: black;
       color: #ff1a1a;
       font-family: monospace;
-      text-align: center;
-      margin-top: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
-    .glitch {
+
+    h1 {
       animation: flicker 1s infinite alternate;
     }
+
     @keyframes flicker {
       0% { opacity: 0.9; }
       100% { opacity: 0.1; }
     }
+
+    input {
+      background: none;
+      border: 1px solid #ff1a1a;
+      color: #ff1a1a;
+      font-family: monospace;
+      padding: 10px;
+      width: 300px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 5px 15px;
+      background: #ff1a1a;
+      color: black;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    p {
+      margin-top: 30px;
+      max-width: 500px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <h1 class="glitch">SHE WAITS</h1>
-  <p>the truth is buried within</p>
+  <h1>SHE WAITS</h1>
+  <p>"It cannot be touched, nor can it be seen.  
+     It hides in silence, yet shapes what has been."</p>
+  <input type="text" id="answer" placeholder="Enter your answer..." />
+  <button onclick="checkAnswer()">Submit</button>
+
+  <script>
+    function checkAnswer() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      if (input === "within") {
+        window.location.href = "countdown.html";
+      } else {
+        alert("She waits for the right answer.");
+      }
+    }
+  </script>
 </body>
 </html>
-
