@@ -13,15 +13,18 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
+      margin: 0;
+      text-align: center;
     }
 
     h1 {
+      font-size: 3em;
       animation: flicker 1s infinite alternate;
     }
 
     @keyframes flicker {
-      0% { opacity: 0.9; }
-      100% { opacity: 0.1; }
+      0% { opacity: 1; }
+      100% { opacity: 0.5; }
     }
 
     input {
@@ -30,25 +33,27 @@
       color: #ff1a1a;
       font-family: monospace;
       padding: 10px;
-      width: 300px;
+      width: 280px;
       text-align: center;
       margin-top: 20px;
+      font-size: 1em;
     }
 
     button {
-      margin-top: 10px;
-      padding: 5px 15px;
+      margin-top: 12px;
+      padding: 6px 20px;
       background: #ff1a1a;
       color: black;
       font-weight: bold;
       border: none;
+      font-size: 1em;
       cursor: pointer;
     }
 
     p {
-      margin-top: 30px;
+      margin-top: 25px;
       max-width: 500px;
-      text-align: center;
+      font-size: 1.1em;
     }
   </style>
 </head>
@@ -56,6 +61,7 @@
   <h1>SHE WAITS</h1>
   <p>"It cannot be touched, nor can it be seen.  
      It hides in silence, yet shapes what has been."</p>
+
   <input type="text" id="answer" placeholder="Enter your answer..." />
   <button onclick="checkAnswer()">Submit</button>
 
