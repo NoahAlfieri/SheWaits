@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>She Waits – Countdown</title>
+  <style>
+    body {
+      background: black;
+      color: #ff1a1a;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: flicker 1s infinite alternate;
+    }
+
+    #countdown {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+  <h1>116 Days Remain</h1>
+  <div id="countdown"></div>
+
+  <script>
+    // 116 days from now
+    const now = new Date();
+    const countdownDate = new Date(now.getTime() + 116 * 24 * 60 * 60 * 1000);
+
+    const countdownElement = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date();
+      const distance = countdownDate - now;
+
+      if (distance <= 0) {
+        countdownElement.innerHTML = "It has begun.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
